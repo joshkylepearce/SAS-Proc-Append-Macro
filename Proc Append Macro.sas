@@ -1,15 +1,15 @@
-/**********************************************************************
-********* Program:	Proc Append Macro  ********************************
-********* Author:	joshkylepearce     ********************************
-**********************************************************************/
+/************************************************************************************
+***** Program:	Proc Append Macro  *****
+***** Author:	joshkylepearce     *****
+************************************************************************************/
 
-/**********************************************************************
+/************************************************************************************
 Examples
-**********************************************************************/
+************************************************************************************/
 
-/**********************************************************************
+/************************************************************************************
 Example 1: Append Monthly Dates
-**********************************************************************/
+************************************************************************************/
 
 data  dates_appended;
 attrib 
@@ -23,23 +23,23 @@ run;
 
 %do i = 1 %to &iterations;
 
-	data _null_;
-		call symput('start_month',"'"||put(intnx('month',today(),-&i.,'b'),date9.)||"'d");
-		call symput('end_month',"'"||put(intnx('month',today(),-&i.,'e'),date9.)||"'d");		
-		call symput('month',put(intnx('month',today(),-&i.,'e'),yymmn6.));
-	run;
-	%put &start_month. &end_month. &month.;
+data _null_;
+	call symput('start_month',"'"||put(intnx('month',today(),-&i.,'b'),date9.)||"'d");
+	call symput('end_month',"'"||put(intnx('month',today(),-&i.,'e'),date9.)||"'d");		
+	call symput('month',put(intnx('month',today(),-&i.,'e'),yymmn6.));
+run;
+%put &start_month. &end_month. &month.;
 
-	data date_&month.;
-		format start_month end_month date9.;
-		start_month=&start_month.;
-		end_month=&end_month.;
-	run;
+data date_&month.;
+	format start_month end_month date9.;
+	start_month=&start_month.;
+	end_month=&end_month.;
+run;
 
-	/*Append all monthly tables to create one collated table*/
-	proc append 
-		data=date_&month. base=dates_appended force; 
-	run; 
+/*Append all monthly tables to create one collated table*/
+proc append 
+	data=date_&month. base=dates_appended force; 
+run; 
 
 %end;
 
@@ -47,9 +47,9 @@ run;
 
 %months(12);
 
-/**********************************************************************
+/************************************************************************************
 Example 2: Total Sales Per Month
-**********************************************************************/
+************************************************************************************/
 
 /*Generate the total number of sales per day*/
 
@@ -83,33 +83,32 @@ run;
 
 %do i = 1 %to &iterations;
 
-	data _null_;
-		call symput('start_month',"'"||put(intnx('month',today(),-&i.,'b'),date9.)||"'d");
-		call symput('end_month',"'"||put(intnx('month',today(),-&i.,'e'),date9.)||"'d");		
-		call symput('month',put(intnx('month',today(),-&i.,'e'),yymmn6.));
-	run;
-	%put &start_month. &end_month. &month.;
+data _null_;
+	call symput('start_month',"'"||put(intnx('month',today(),-&i.,'b'),date9.)||"'d");
+	call symput('end_month',"'"||put(intnx('month',today(),-&i.,'e'),date9.)||"'d");		
+	call symput('month',put(intnx('month',today(),-&i.,'e'),yymmn6.));
+run;
+%put &start_month. &end_month. &month.;
 
-	data monthly_sales_&month.;
-		set sales_per_day;
-		where date between &start_month. and &end_month.;
-	run;
+data monthly_sales_&month.;
+	set sales_per_day;
+	where date between &start_month. and &end_month.;
+run;
 
-	proc sql;
-	create table total_sales_&month. as
-	select
-		&month. as month
-		,sum(sales) as total_sales
-	from
-		monthly_sales_&month.
-	;
-	quit;
+proc sql;
+create table total_sales_&month. as
+select
+	&month. as month
+	,sum(sales) as total_sales
+from
+	monthly_sales_&month.
+;
+quit;
 
-	/*Append all monthly tables to create one collated table*/
-	proc append 
-		data=total_sales_&month. base=sales_per_month force; 
-	run; 
-
+/*Append all monthly tables to create one collated table*/
+proc append 
+	data=total_sales_&month. base=sales_per_month force; 
+run; 
 %end;
 
 %mend;
