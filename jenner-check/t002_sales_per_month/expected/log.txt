@@ -1,0 +1,91 @@
+NOTE: Option OBS changed to 100.
+NOTE: DATA _null_
+
+
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+'31DEC2019'd '01OCT2019'd
+NOTE: DATA sales_per_day
+
+
+NOTE: Wrote sales_per_day (92 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA sales_per_month
+
+
+NOTE: Wrote sales_per_month (0 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA _null_
+
+
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+'01DEC2019'd '31DEC2019'd 201912
+NOTE: DATA monthly_sales_201912
+
+
+NOTE: Read 31 rows from sales_per_day.
+NOTE: Wrote monthly_sales_201912 (31 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Table total_sales_201912 created.
+NOTE: PROC SQL statement used.
+NOTE: PROC APPEND base=sales_per_month data=total_sales_201912
+
+NOTE: Appended 1 rows.
+NOTE: DATA _null_
+
+
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+'01NOV2019'd '30NOV2019'd 201911
+NOTE: DATA monthly_sales_201911
+
+
+NOTE: Read 30 rows from sales_per_day.
+NOTE: Wrote monthly_sales_201911 (30 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Table total_sales_201911 created.
+NOTE: PROC SQL statement used.
+NOTE: PROC APPEND base=sales_per_month data=total_sales_201911
+
+NOTE: Appended 1 rows.
+NOTE: DATA _null_
+
+
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+'01OCT2019'd '31OCT2019'd 201910
+NOTE: DATA monthly_sales_201910
+
+
+NOTE: Read 31 rows from sales_per_day.
+NOTE: Wrote monthly_sales_201910 (31 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Table total_sales_201910 created.
+NOTE: PROC SQL statement used.
+NOTE: PROC APPEND base=sales_per_month data=total_sales_201910
+
+NOTE: Appended 1 rows.
+NOTE: PROC PRINT data=sales_per_month
+
+NOTE: PROC PRINT completed: 3 observations printed, 2 variables

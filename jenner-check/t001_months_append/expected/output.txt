@@ -1,0 +1,7 @@
+
+  Obs  start_month  end_month
+-----  -----------  ---------
+    1    01DEC2019  31DEC2019
+    2    01NOV2019  30NOV2019
+    3    01OCT2019  31OCT2019
+

@@ -1,0 +1,15 @@
+{
+  "_captured_at": "2026-08-19T16:50:00Z",
+  "_captured_run_id": "r_10b6040fb32a44a6a9a5a4bf9e019e78",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Wrote dates_appended (0 rows, 2 columns).",
+    "NOTE: Wrote date_201912 (1 rows, 2 columns).",
+    "NOTE: PROC APPEND base=dates_appended data=date_201912",
+    "NOTE: Appended 1 rows.",
+    "NOTE: PROC PRINT completed: 3 observations printed, 2 variables"
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}
