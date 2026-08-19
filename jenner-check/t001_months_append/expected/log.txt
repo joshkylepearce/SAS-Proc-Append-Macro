@@ -1,0 +1,62 @@
+NOTE: Option OBS changed to 100.
+NOTE: DATA dates_appended
+
+
+NOTE: Wrote dates_appended (0 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA _null_
+
+
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+'01DEC2019'd '31DEC2019'd 201912
+NOTE: DATA date_201912
+
+
+NOTE: Wrote date_201912 (1 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC APPEND base=dates_appended data=date_201912
+
+NOTE: Appended 1 rows.
+NOTE: DATA _null_
+
+
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+'01NOV2019'd '30NOV2019'd 201911
+NOTE: DATA date_201911
+
+
+NOTE: Wrote date_201911 (1 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC APPEND base=dates_appended data=date_201911
+
+NOTE: Appended 1 rows.
+NOTE: DATA _null_
+
+
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+'01OCT2019'd '31OCT2019'd 201910
+NOTE: DATA date_201910
+
+
+NOTE: Wrote date_201910 (1 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC APPEND base=dates_appended data=date_201910
+
+NOTE: Appended 1 rows.
+NOTE: PROC PRINT data=dates_appended
+
+NOTE: PROC PRINT completed: 3 observations printed, 2 variables

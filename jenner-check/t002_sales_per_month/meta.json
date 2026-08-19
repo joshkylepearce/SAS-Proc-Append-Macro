@@ -1,0 +1,7 @@
+{
+  "bundle": "t002_sales_per_month",
+  "source_file": "Proc Append Macro.sas",
+  "source_blob_sha": "4d2077ae0bf7c59480a967657f04a5cee32dc8b2",
+  "source_commit": "6f8a24421273ffe1a702885ee5b06d1c99daa8b2",
+  "notes": "Example 2 from the repo: simulates daily sales with RAND(), then the %sales_per_month() macro rolls each prior month up via PROC SQL and collates the monthly totals with PROC APPEND. Iteration count reduced from 12 to 3 for a fast bundle run; a trailing PROC PRINT was added to surface the collated result. No external data, no path edits needed."
+}

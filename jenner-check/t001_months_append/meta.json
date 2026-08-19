@@ -1,0 +1,7 @@
+{
+  "bundle": "t001_months_append",
+  "source_file": "Proc Append Macro.sas",
+  "source_blob_sha": "4d2077ae0bf7c59480a967657f04a5cee32dc8b2",
+  "source_commit": "6f8a24421273ffe1a702885ee5b06d1c99daa8b2",
+  "notes": "Example 1 from the repo: the %months() macro builds one dataset per prior month (start/end dates via INTNX) and collates them with PROC APPEND. Iteration count reduced from 12 to 3 for a fast bundle run; a trailing PROC PRINT was added to surface the collated result. No external data, no path edits needed."
+}

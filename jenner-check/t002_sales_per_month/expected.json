@@ -1,0 +1,13 @@
+{
+  "_captured_at": "2026-08-19T16:50:00Z",
+  "_captured_run_id": "r_c21f1a45746a4b618ee9c217bdc0d162",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: PROC APPEND base=sales_per_month data=total_sales_201912",
+    "NOTE: Appended 1 rows.",
+    "NOTE: PROC PRINT completed: 3 observations printed, 2 variables"
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}
